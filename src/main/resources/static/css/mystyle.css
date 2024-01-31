@@ -1,0 +1,79 @@
+@charset "UTF-8";
+*{margin: 0;
+padding: 0;}
+html,body{
+	background-color:beige;
+	position:relative;
+	width: 100%;
+	height:100%;
+}
+.content{
+	position:absolute;
+	top:10%;
+	width: 80%;
+	height:80%;
+	left:20%;
+	overflow-y:scroll;
+}
+
+.content1{
+	background-color:#ffc300;
+}
+.content2{
+	background-color:#ff8040;
+	color:white;
+}
+
+header,footer{
+	width:80%;
+	height:10%;
+	background-color:#0081a7;
+	position:absolute;
+	z-index:1;
+	text-align:center;
+	line-height: 60px;;
+}
+header{
+	top:0;
+	left:20%;
+	
+}
+footer{
+	bottom:0;
+	left:20%;
+	height:10%;
+}
+header nav{
+	width: 100%; /* 메뉴 추가되면 수정 */
+	margin:0 auto;
+	top:5%;
+	position:relative
+}
+header nav li{
+	float:left;
+	list-style: none;
+	margin:5px;
+}
+#sidebar{
+	width:20%;
+	height:100%;
+	background-color: lightblue;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:99;
+}
+#sidebar img{
+	width: 90%;
+}
+#sidebar nav{
+	position:absolute;
+	top:30%;
+	left:30px;
+}
+#sidebar nav li{
+	list-style: none;
+}
+#sidebar nav li a{
+	color:white;
+}

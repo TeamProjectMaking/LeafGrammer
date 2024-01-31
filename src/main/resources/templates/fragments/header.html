@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<!-- header Fragment 선언 : 모든 페이지마다 공통으로 계속 동일하게 들어갈 영역 --> 
+    <header th:fragment="header"> <!-- th:fragment는 헤더영역을 조각 fragment으로 선언한다는 의미 -->
+		<nav>
+			<ul>
+				<li><a href="/">홈</a></li> <!-- 10)메인페이지 링크 수정=>controller -->
+				<li><a href="best">베스트</a></li>
+				<li><a href="bestProducts">베스트 제품들</a></li>
+				<li><a href="board">고객 게시판</a></li>
+				<li><a href="login">로그인</a></li>
+			</ul>
+		</nav>
+	</header>
+</body>
+</html>
+
+

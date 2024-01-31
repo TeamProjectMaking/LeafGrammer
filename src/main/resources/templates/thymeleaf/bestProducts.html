@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{/layouts/layout}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="content" class="content">
+		<h1>상품 데이터 출력 예제</h1>
+	
+	  	<table border="1">
+	    <thead>
+	      <tr>
+	        <td>순번</td>
+	        <td>순번(짝,홀수)</td> <!-- 13)추가해봄 -->
+	        <td>상품명</td>
+	        <td>상품설명</td>
+	        <td>가격</td>
+	        <td>상품등록일</td>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr th:each="itemDto, status:${itemDtoList}">
+	        <td th:text="${status.index}+1"></td> 
+	        
+	        <!-- 13)추가:시작 -->
+	        <td th:if="${status.even}" th:text="'인기 제품'">th:text에 빈칸 있으면 에러나서 외따옴표로 감싸거나</td>
+        	<td th:if="${status.odd}" th:text="|핫신상 제품|">자바스크립트의 리터럴 템플릿 문법처럼 리터럴 대체문법을 사용한다.</td>
+        	<!-- 13)추가:끝 -->
+        	
+	        <td th:text="${itemDto.itemNm}"></td>
+	        <td th:text="${itemDto.itemDetail}"></td>
+	        <td th:text="${itemDto.price}"></td>
+	        <td th:text="${itemDto.regTime}"></td>
+	      </tr>
+	    </tbody>
+	  </table>
+	  
+	  <br />
+	  <br />
+	  <br />
+	  <table border="1">
+	    <thead>
+	      <tr>
+	        <td>순번</td>
+	        <td>순번(짝,홀수)</td> <!-- 13)추가해봄 -->
+	        <td>상품명</td>
+	        <td>상품설명</td>
+	        <td>가격</td>
+	        <td>상품등록일</td>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr th:each="itemDto, status:${itemDtoList}">
+	        <td th:text="${status.index}+1"></td> 
+	        
+	        <!-- 14)삭제후 추가:시작 -->
+	        <td th:switch="${status.even}">
+	        	<span th:case=true>완전 인기</span>
+	        	<span th:case=false>완전 핫 아이템</span>
+        	</td>
+        	<!-- 14)삭제후 추가:끝 -->
+        	
+	        <td th:text="${itemDto.itemNm}"></td>
+	        <td th:text="${itemDto.itemDetail}"></td>
+	        <td th:text="${itemDto.price}"></td>
+	        <td th:text="${itemDto.regTime}"></td>
+	      </tr>
+	    </tbody>
+	  </table>
+	  
+	  <br />
+	  <br />
+	  <br />
+	  <!-- 15)Thymeleaf 링크처리 문법 th:href 의 사용 -->
+	  <h1>Thymeleaf 링크처리 문법 th:href 의 사용</h1>
+	  <a th:href="@{board}">게시판 페이지로 이동</a><br />
+	  <a th:href="@{https://www.thymeleaf.org/}">타임리프 공식 페이지 이동</a><br />
+	  <!-- 16)controller에서 login 매퍼 생성 =>controller-->
+	  <a th:href="@{login(param1='파라미터 데이터1', param2='파리미터 데이터2')}">로그인 페이지로 타임리프 파라미터 전달</a><br />
+	  <br />
+	  <br />
+	  <br />
+	</div>	  
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{/layouts/layout}"> <!-- 기본 레이아웃으로 layouts/layout.html파일을 사용하겠다. -->
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="content" class="content content2">
+		<h1>파라미터 전달</h1>
+	    <div th:text="${param1}"></div>
+		<div th:text="${param2}"></div>
+	</div>	
+</body>
+</html>
